@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
 import './bootstrap';
 import "../scss/style.scss";
-=======
-
 import "./bootstrap";
 import "../scss/style.scss";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -16,4 +13,3 @@ window.addEventListener("scroll", function () {
         navbar.classList.remove("scrolled");
     }
 });
->>>>>>> Stashed changes

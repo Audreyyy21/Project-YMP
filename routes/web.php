@@ -2,40 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+// 👇 Landing page (non-login)
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('landing'); // file: resources/views/landing.blade.php
+})->name('landing');
 
-Route::get('/aboutUs', function () {
-    return view('aboutUs');
-})->name('aboutUs');
+// 👇 Auth routes
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register.form');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-
-
-
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
+// 👇 Dashboard hanya bisa diakses setelah login
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('dashboard');
