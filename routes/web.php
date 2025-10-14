@@ -14,5 +14,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< Updated upstream
     return view('welcome');
 });
+=======
+    return view('home');
+})->name('home');
+
+Route::get('/aboutUs', function () {
+    return view('aboutUs');
+})->name('aboutUs');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+
+
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+>>>>>>> Stashed changes
