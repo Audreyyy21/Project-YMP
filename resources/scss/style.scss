@@ -1,6 +1,400 @@
 @import "bootstrap/scss/bootstrap";
 
+<<<<<<< Updated upstream
 body {
   background-color: #f9f9f9;
   font-family: Arial, sans-serif;
+=======
+/* === Style umum === */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+/* === Navbar Scroll Effect === */
+.navbar.scrolled {
+    background-color: #222222 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* === Dropdown Umum === */
+.dropdown-menu {
+    background-color: #b8aa9e;
+    border-radius: 10px;
+    border: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.dropdown-item {
+    color: #000 !important;
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    background-color: #a6958a;
+    color: #fff !important;
+}
+
+/* === Dropdown Level 1 (Program) === */
+/* Hanya muncul saat hover ke menu utama Program */
+.nav-item.dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* === Dropdown Level 2 (Bootcamp Submenu) === */
+.dropdown-submenu {
+    position: relative;
+}
+
+/* Default sembunyikan submenu Bootcamp */
+.dropdown-submenu > .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* tampil di kanan Bootcamp */
+    margin-top: 0;
+    background-color: #b8aa9e;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+}
+
+/* Tampilkan submenu saat hover ke Bootcamp */
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+/* === Responsif: biar di HP dropdown-nya normal (klik, bukan hover) === */
+@media (max-width: 991px) {
+    .nav-item.dropdown:hover > .dropdown-menu {
+        display: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+        position: static;
+        margin-left: 1rem;
+    }
+}
+/* Dropdown background */
+.dropdown-menu {
+    background-color: #ffffff;
+    border: none;
+    opacity: 1;
+    visibility: visible;
+}
+/* ====================================================== */
+/* === Style untuk Section Program & Layanan (Update) === */
+/* ====================================================== */
+.horizontal-scroll-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; // Ini yang membuat bisa scroll ke samping
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+
+    /* Menyembunyikan scrollbar visualnya */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.program-section {
+    background-image: url("/images/bg2.png"); // Pastikan path ini benar
+    background-color: #f0f2f5;
+    background-repeat: repeat;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: #333;
+}
+
+// Judul "Program dan Layanan Edutech"
+.section-title-pill {
+    background-color: #b18b2f;
+    border-radius: 50px;
+}
+
+.promo-section {
+    position: relative; // Penting untuk posisi ::before
+    background-color: #ffffff; // Fallback jika gambar tidak termuat atau untuk lapisan dasar
+    padding-top: 5rem; // Padding agar konten tidak menempel di tepi
+    padding-bottom: 5rem;
+    overflow: hidden; // Memastikan tidak ada bagian blur yang keluar dari section
+    z-index: 1; // Memastikan section ini di atas elemen lain jika ada tumpang tindih
+}
+
+// Tombol panah
+.btn-arrow {
+    background: linear-gradient(to bottom, #d4af37, #b18b2f);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    flex-shrink: 0; // Mencegah tombol mengecil
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #e68a00;
+        color: white;
+    }
+}
+
+// Tombol navigasi custom (warna gold)
+.btn-custom-gold {
+    background: linear-gradient(to bottom, #d4af37, #b18b2f);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    white-space: nowrap; // Mencegah teks turun baris
+
+    &:hover {
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+    }
+
+    &.active {
+        background: linear-gradient(to bottom, #8a6d2f, #6e541e);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        transform: none; // Hapus efek hover saat aktif
+    }
+}
+
+// Placeholder abu-abu di kiri
+.placeholder-box {
+    width: 100px;
+    height: 100px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+
+// Kartu promo di kanan
+.promo-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
+    .price-original {
+        text-decoration: line-through;
+        color: #888;
+        margin-right: 10px;
+    }
+
+    .price-new {
+        color: #e74c3c;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+}
+
+/* ====================================================== */
+/* === Section: Kenapa Harus Bergabung (Why Join Us) === */
+/* ====================================================== */
+
+.join-section {
+    // Pastikan path ke gambar ini 100% benar
+    //background-image: url("/images/bg2.jpg");
+    background-color: #f8f9fa; // Warna fallback jika gambar gagal dimuat
+    background-repeat: repeat;
+    padding: 5rem 0;
+
+    .section-title {
+        color: #ffc107; // Warna kuning
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+}
+
+.reason-item {
+    background-color: #ffffff;
+    // Membuat sudut lebih bulat sesuai desain
+    border-radius: 12px;
+    padding: 1.5rem;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    // Ini adalah properti kunci yang membuat kartu terlihat "mengambang"
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    // Border tebal warna emas di kiri
+    border-left: 8px solid #d4af37;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    h5 {
+        font-weight: 600;
+        color: #343a40;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: #6c757d;
+        margin-bottom: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* ====================================================== */
+/* === Section: Exclusive Access (Akses Eksklusif)   === */
+/* ====================================================== */
+
+.exAccess-section {
+    //background-image: url("/images/bg2.png"); // Latar belakang sirkuit
+    background-color: #f8f9fa;
+    background-repeat: repeat;
+    padding: 5rem 0;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e9ecef;
+
+    img {
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+
+    .price-container {
+        padding-top: 1rem;
+        border-top: 1px solid #f1f1f1;
+
+        .original-price {
+            text-decoration: line-through;
+            color: #6c757d;
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .discounted-price {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.promo-text {
+    h2 {
+        font-weight: 700;
+        color: #b18b2f;
+        line-height: 1.4;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #343a40;
+        line-height: 1.5;
+    }
+}
+
+.btn-start-now {
+    background-color: #f0e68c; // Warna kuning pucat
+    color: #343a40;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        background-color: #e9dd74;
+    }
+}
+
+/* ====================================================== */
+/* === Section: FAQ (Pertanyaka Kawan Yuk-Mari)      === */
+/* ====================================================== */
+
+.faq-section {
+    // background-image: url("/images/bg2.jpg"); // Latar belakang sirkuit
+    background-color: #fdfdfd;
+    background-repeat: repeat;
+    padding: 5rem 0;
+}
+
+.faq-title-wrapper {
+    background-color: #f0e68c; // Warna kuning pucat
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    display: inline-block;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        color: #343a40;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+}
+
+.accordion-item {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px !important; // !important untuk override default Bootstrap
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden; // Memastikan sudut tetap bulat
+
+    .accordion-header {
+        button.accordion-button {
+            background-color: #ffffff;
+            color: #343a40;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 12px !important;
+            box-shadow: none; // Hapus box-shadow saat diklik
+
+            // Menghapus ikon panah default Bootstrap
+            &::after {
+                display: none;
+            }
+
+            // Atur gaya saat accordion terbuka (tidak ter-collapse)
+            &:not(.collapsed) {
+                background-color: #f8f9fa;
+                color: #b18b2f; // Warna emas saat aktif
+            }
+        }
+    }
+
+    .accordion-body {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        color: #6c757d;
+        line-height: 1.7;
+    }
+>>>>>>> Stashed changes
 }

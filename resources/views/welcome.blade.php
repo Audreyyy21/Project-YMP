@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,3 +42,5 @@
     </nav>
 </body>
 </html>
+=======
+>>>>>>> Stashed changes
