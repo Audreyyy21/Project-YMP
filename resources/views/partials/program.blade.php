@@ -1,4 +1,6 @@
-<section id="program-layanan-hero" class="program-hero ">
+@extends('layouts.app') 
+@section('content')
+<section id="program" class="program-hero ">
 
     <div class="container">
 
@@ -33,7 +35,7 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <div class="col-lg-7 mb-4 mb-lg-0">
+            <div class="col-lg-6 mb-4 mb-lg-0">
                 <h2 class="fw-bold mb-3" style="color: #b18b2f;">Yuk, nikmati promo spesial dari Yuk-Mari Course!</h2>
 
                 <div class="d-flex justify-content-start gap-3 mb-4">
@@ -48,21 +50,23 @@
                 </p>
             </div>
 
-            <div class="col-lg-5">
-                <div class="promo-card">
+            <div class="col-lg-6">
+                <div class="promo-card w-75 mx-auto">
                     <h5 class="fw-bold">Bootcamp 3</h5>
                     <p class="text-muted mb-2" style="font-size: 1.1rem;">Blue Team Operation</p>
-                    
+                     
                     <p class="mb-3">
                         <span class="price-original">Harga: Rp3.200.000</span>
                         <span class="price-new">Rp159.000</span>
                     </p>
 
-                    <img src="{{ asset('images/bc3.jpg') }}" class="img-fluid rounded mb-3 " alt="Cyber Security Bootcamp">
-                    <p class="mb-4 text-dark small">
-                        <strong>Bootcamp 3 - Blue Teaming Operation</strong> merupakan Bootcamp yang diselenggarakan pada Bulan Mei 2025. Dapatkan Module lengkapnya + Rekaman Video yang bisa dipelajari kapan saja dalam mempelajari strategi simulasi Blue Team.
-                    </p>
-                    
+                    <img src="{{ asset('images/bc3.jpg') }}" class="img-fluid rounded mb-3 w-75 d-block mx-auto" alt="Cyber Security Bootcamp">                    
+                    <div class="description-wrapper mb-3">
+                        <p class="text-dark small mb-0">
+                            <strong>Bootcamp 3 - Blue Teaming Operation</strong> merupakan Bootcamp yang diselenggarakan pada Bulan Mei 2025. Dapatkan Module lengkapnya + Rekaman Video yang bisa dipelari kapan saja dalam mempelajari strategi simulasi Blue Team.
+                        </p>
+                       
+                </div>
                     <div class="d-grid">
                         <a href="#" class="btn btn-custom-gold text-center">Beli Sekarang</a>
                     </div>
@@ -73,4 +77,3 @@
     </div>
 </section>
 
-{{-- Catatan: Pastikan Font Awesome sudah terpasang di layout utama Anda --}}
