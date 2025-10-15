@@ -1,31 +1,42 @@
-<section id="about-section" class="py-5" style="background: url('{{ asset('images/bg2.png') }}') linear-gradient(to bottom, #dad8d8, #f9f0ae); color: #1a1a1a;">
-  <div class="container">
-    <div class="row align-items-center">
+@extends('layouts.app')
+<section id="aboutUs" class="about-us-section">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+               <div class="text-panel">
+                <img src="{{ asset('images/logoymp.png') }}" 
+                     alt="Logo Yuk-Mari Project" 
+                     class="mb-2" 
+                     style="height: 120x; width: 150px object-fit: contain;">
 
-      <!-- Gambar ilustrasi -->
-      <div class="col-md-6 mb-4 mb-md-0 text-center">
-        <img src="{{ asset('images/logoymp.png') }}" 
-             alt="Tentang Yuk-Mari" 
-             class="img-fluid rounded-4 shadow-lg" 
-             style="max-width: 70%;">
-      </div>
+                <p class="mb-4">
+                    Yuk-Mari Project (YMP) adalah sebuah startup di bidang Edutech dan Cybersecurity yang 
+                    dirintis oleh mahasiswa dari berbagai kampus ternama di Kota Bandung, seperti ITB, UIN SGD, 
+                    UPI, dan UNPAD. Berawal dari semangat kolaboratif dan keinginan untuk menghadirkan solusi 
+                    nyata bagi masyarakat, pelajar, dan profesional muda, YMP hadir sebagai wadah untuk meningkatkan 
+                    kapasitas, pengalaman, dan karya—baik di bidang teknologi maupun non-teknologi.
+                </p>
 
-      <!-- Teks -->
-      <div class="col-md-6">
-        <!-- <h2 class="fw-bold text-warning mb-3">Tentang Yuk-Mari</h2> -->
-        <p class="lead mb-4">
-          Yuk-Mari adalah platform pembelajaran digital yang berfokus pada pengembangan skill dan karier di bidang teknologi.
-          Kami menyediakan berbagai course, bootcamp, dan bimbingan belajar yang bisa kamu akses secara fleksibel dari mana saja.
-        </p>
-        <p class="mb-4">
-          Dengan dukungan mentor profesional dan metode pembelajaran interaktif, kamu bisa meningkatkan kompetensi 
-          dan siap bersaing di dunia industri digital yang terus berkembang.
-        </p>
-        <a href="#program-section" class="btn btn-warning fw-bold px-4 py-2 rounded-pill">
-          Jelajahi Program Kami
-        </a>
-      </div>
+                <p class="mb-4">
+                    Dengan memanfaatkan potensi talenta muda Indonesia, kami menciptakan platform dan layanan 
+                    berbasis keamanan informasi untuk mendukung transformasi digital di berbagai sektor, mulai 
+                    dari edukasi keamanan siber, pengembangan aplikasi yang aman, hingga perlindungan data dan sistem.
+                </p>
 
+                <p class="mb-4">
+                    Kami percaya masa depan teknologi dibangun oleh kolaborasi, bukan kompetisi. Oleh karena itu, 
+                    YMP menghadirkan ruang terbuka bagi mahasiswa, profesional muda, dan pelaku industri untuk bersama-sama 
+                    menciptakan solusi Cyber Security yang berdampak dan berkelanjutan.
+                </p>
+                
+                <p>
+                    Kami berdomisili di Kota Bandung, Jawa Barat, Indonesia. Perjalanan kami dimulai dari inisiatif 
+                    komunitas Yuk-Mari Kuliner (2020-2022), lalu berkembang menjadi Yuk-Mari Indonesia (2022-2023), 
+                    Yuk-Mari Project Indonesia sejak tahun 2023-2024, dan di tahun 2025 - sekarang lebih difokuskan ke 
+                    bidang Cyber Security.
+                </p>
+               </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>

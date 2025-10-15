@@ -10,6 +10,19 @@ Route::get('/', function () {
     return view('landing'); // file: resources/views/landing.blade.php
 })->name('landing');
 
+//about us
+Route::get('/aboutUs', function () {
+    return view('aboutUs'); // Mengarah ke resources/views/aboutUs.blade.php
+})->name('aboutUs');
+
+Route::get('/program', function () {
+    return view('partials.program'); // Asumsi Anda punya file program.blade.php
+})->name('program'); // Untuk menu "Program"
+
+Route::get('/kontak', function () {
+    return view('kontak'); // Asumsi Anda punya file kontak.blade.php
+})->name('kontak'); // Untuk menu "Kontak"
+
 // 👇 Auth routes
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');

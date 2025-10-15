@@ -1,4 +1,4 @@
-<section id="beranda-section" class="hero-section d-flex align-items-center text-white" 
+<section id="beranda" class="hero-section d-flex align-items-center text-white" 
          style="background: url('{{ asset('images/bg dash.jpg') }}') center/cover no-repeat; height: 100vh; position: relative;">
     <!-- Overlay -->
     <div class="overlay" style="position:absolute; inset:0; background:rgba(0, 0, 0, 0.35);"></div>

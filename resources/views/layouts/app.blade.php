@@ -5,34 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'YukMari')</title>
 
-    {{-- Tambahkan Vite sekali saja di sini --}}
+    {{-- Bootstrap CSS (CDN) --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {{-- SCSS & JS via Vite --}}
     @vite(['resources/scss/style.scss', 'resources/js/app.js'])
 </head>
 <body>
-    @if (!in_array(Route::currentRouteName(), ['login', 'register']))
+    {{-- Navbar hanya muncul jika bukan halaman login/register --}}
+    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'register.form']))
         @include('partials.navbar')
     @endif
 
-    {{-- Konten halaman --}}
+
+    {{-- Konten utama --}}
     <main>
         @yield('content')
     </main>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    {{-- Script aktifkan dropdown Bootstrap --}}
+    {{-- Bootstrap Bundle JS (CDN) --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {{-- Aktifkan dropdown Bootstrap manual (opsional jika kamu butuh kontrol tambahan) --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const dropdownTriggerList = document.querySelectorAll('.dropdown-toggle');
-            dropdownTriggerList.forEach((dropdownToggleEl) => {
-                new bootstrap.Dropdown(dropdownToggleEl);
+            document.querySelectorAll('.dropdown-toggle').forEach(function (el) {
+                new bootstrap.Dropdown(el);
             });
         });
     </script>
 
-     {{-- Script --}}
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    {{-- Efek scroll pada navbar --}}
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+    </script>
 
-    {{-- Optional: script tambahan tiap halaman --}}
+    {{-- Optional: tambahan script halaman --}}
     @stack('scripts')
 </body>
 </html>

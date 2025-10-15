@@ -1,80 +1,61 @@
 @extends('layouts.app')
 
-@section('title', 'Registrasi')
-
 @section('content')
-<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
-    <div class="row w-75 shadow rounded-4 overflow-hidden">
-        
-        {{-- Kolom Kiri: Form Registrasi --}}
-        <div class="col-md-6 bg-white p-5">
-            <h2 class="fw-bold text-warning mb-3">Registrasi</h2>
-            <p class="text-muted mb-4">Buat akun untuk menggunakan platform YukMari</p>
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center" style="background-color: #f9fafb;">
+    <div class="row w-75 bg-white shadow rounded-4 overflow-hidden">
+        {{-- Kolom kiri: Form register --}}
+        <div class="col-lg-6 col-md-12 p-5">
+            <h2 class="fw-bold mb-2" style="color:#f8b400;">Registrasi</h2>
+            <p class="text-secondary mb-4">Buat akun untuk menggunakan platform <strong>YukMari</strong></p>
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
                 <div class="mb-3">
-                    <input type="text" name="name" class="form-control rounded-3 p-3 @error('name') is-invalid @enderror" 
-                        placeholder="Nama Lengkap" value="{{ old('name') }}" required autofocus>
-                    @error('name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <input id="name" type="text" name="name" class="form-control rounded-3 p-3" placeholder="Nama Lengkap" required autofocus>
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" name="username" class="form-control rounded-3 p-3 @error('username') is-invalid @enderror"
-                        placeholder="Username" value="{{ old('username') }}" required>
-                    @error('username')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <input id="username" type="text" name="username" class="form-control rounded-3 p-3" placeholder="Username" required>
                 </div>
 
                 <div class="mb-3">
-                    <input type="email" name="email" class="form-control rounded-3 p-3 @error('email') is-invalid @enderror"
-                        placeholder="Email" value="{{ old('email') }}" required>
-                    @error('email')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="mb-3 position-relative">
-                    <input type="password" name="password" class="form-control rounded-3 p-3 @error('password') is-invalid @enderror"
-                        placeholder="Password" required>
-                    @error('password')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <input id="email" type="email" name="email" class="form-control rounded-3 p-3" placeholder="Email" required>
                 </div>
 
                 <div class="mb-3">
-                    <input type="password" name="password_confirmation" class="form-control rounded-3 p-3"
-                        placeholder="Konfirmasi Password" required>
+                    <input id="password" type="password" name="password" class="form-control rounded-3 p-3" placeholder="Password" required>
                 </div>
 
-                <div class="form-check mb-3 text-start">
-                    <input class="form-check-input" type="checkbox" id="privacyCheck" required>
-                    <label class="form-check-label text-muted" for="privacyCheck">
-                        Saya sudah memahami penjelasan terkait 
-                        <a href="#" class="text-warning text-decoration-none">kebijakan privasi</a>.
+                <div class="mb-3">
+                    <input id="password-confirm" type="password" name="password_confirmation" class="form-control rounded-3 p-3" placeholder="Konfirmasi Password" required>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="agree" required>
+                    <label class="form-check-label" for="agree">
+                        Saya sudah memahami penjelasan terkait <a href="#" class="text-warning text-decoration-none">kebijakan privasi</a>.
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-warning text-white w-100 rounded-3 p-3 fw-semibold">
+                <button type="submit" class="btn w-100 p-3 fw-semibold" style="background-color:#ffc107; border:none; color:white;">
                     Buat Akun
                 </button>
+
+                <div class="text-center mt-3">
+                    <p>Sudah mempunyai akun?
+                        <a href="{{ route('login') }}" class="text-decoration-none fw-bold" style="color:#f8b400;">
+                            Masuk
+                        </a>
+                    </p>
+                </div>
             </form>
-
-            <p class="mt-4 text-center text-muted">
-                Sudah punya akun? <a href="{{ route('login') }}" class="text-warning fw-semibold text-decoration-none">Masuk</a>
-            </p>
         </div>
 
-        {{-- Kolom Kanan: Logo --}}
-        <div class="col-md-6 bg-warning d-flex align-items-center justify-content-center position-relative">
-            <div class="overlay-square"></div>
-            <img src="{{ asset('images/logoymp.png') }}" alt="Logo YukMari" width="200" class="position-absolute">
+        {{-- Kolom kanan: Logo / ilustrasi --}}
+        <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center" style="background-color: #f8b400;">
+            <img src="{{ asset('images/logoymp.png') }}" alt="Logo YMP" class="img-fluid" style="max-width: 70%; object-fit: contain;">
         </div>
-
     </div>
 </div>
 @endsection

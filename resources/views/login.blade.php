@@ -31,7 +31,7 @@
                 <a href="#" class="text-warning small text-decoration-none">Lupa password?</a>
             </div>
 
-            <button type="submit" class="btn btn-warning w-100 fw-bold text-white shadow-sm">Masuk</button>
+            <button type="submit" href="" class="btn btn-warning w-100 fw-bold text-white shadow-sm">Masuk</button>
         </form>
 
         <div class="text-center mt-4">
