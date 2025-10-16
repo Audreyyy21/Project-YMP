@@ -5,46 +5,36 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
-// 👇 Landing page (non-login)
+/*
+|--------------------------------------------------------------------------
+| Public Pages (tanpa login)
+|--------------------------------------------------------------------------
+*/
 Route::get('/', function () {
-    return view('landing'); // file: resources/views/landing.blade.php
+    return view('landing');
 })->name('landing');
 
-//about us
 Route::get('/aboutUs', function () {
-    return view('aboutUs'); // Mengarah ke resources/views/aboutUs.blade.php
+    return view('aboutUs');
 })->name('aboutUs');
 
 Route::get('/program', function () {
-    return view('partials.program'); // Asumsi Anda punya file program.blade.php
-})->name('program'); // Untuk menu "Program"
+    return view('partials.program');
+})->name('program');
 
 Route::get('/kontak', function () {
-    return view('kontak'); // Asumsi Anda punya file kontak.blade.php
-})->name('kontak'); // Untuk menu "Kontak"
-
-Route::get('/bootcamp', function () {
-    return view('bootcamp');
-})->name('bootcamp');
-
-Route::get('/course', function () {
-    return view('course');
-})->name('course');
-
-Route::get('/sertifikat', function () {
-    return view('sertifikat');
-})->name('sertifikat');
-
-Route::get('/transaksi', function () {
-    return view('transaksi');
-})->name('transaksi');
+    return view('kontak');
+})->name('kontak');
 
 Route::get('/setting', function () {
     return view('setting');
 })->name('setting');
 
-
-// 👇 Auth routes
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
@@ -52,7 +42,15 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// 👇 Dashboard hanya bisa diakses setelah login
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware('auth')
-    ->name('dashboard');
+/*
+|--------------------------------------------------------------------------
+| Dashboard (hanya untuk user login)
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth'])->prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/bootcamp', [DashboardController::class, 'bootcamp'])->name('dashboard.bootcamp');
+    Route::get('/course', [DashboardController::class, 'course'])->name('dashboard.course');
+    Route::get('/sertifikat', [DashboardController::class, 'sertifikat'])->name('dashboard.sertifikat');
+    Route::get('/transaksi', [DashboardController::class, 'transaksi'])->name('dashboard.transaksi');
+});

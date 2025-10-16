@@ -45,7 +45,7 @@
         <h4 class="mt-4 fw-bold">Yuk - Mari Gabung Kelasnya Sekarang</h4>
 
         <div class="bootcamp-list">
-            @for ($i = 0; $i < 5; $i++)
+            @foreach ($bootcamps as $bootcamp)
             <div class="bootcamp-card">
                 <img src="{{ asset('images/cyberSec.jpg') }}" class="w-100" alt="Bootcamp">
                 <div class="card-body">
@@ -57,7 +57,7 @@
                     <button class="btn-buy">Beli Sekarang</button>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </div>
