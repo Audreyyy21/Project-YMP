@@ -1,4 +1,4 @@
-  @extends('layouts.app') {{-- pastikan ini sesuai dengan layout utama kamu --}}
+@extends('layouts.app') {{-- pastikan ini sesuai dengan layout utama kamu --}}
 
 @section('title', 'dashboard')
 
@@ -7,11 +7,12 @@
 <div class="dashboard-page row g-0">
     <!-- Sidebar -->
     <div class="col-2 sidebar d-flex flex-column align-items-start px-3">
-        <h5 class="fw-bold mb-4">Dashboard</h5>
-        <a href="#" class="nav-link">Bootcamp</a>
-        <a href="#" class="nav-link">Course</a>
-        <a href="#" class="nav-link">Sertifikat</a>
-        <a href="#" class="nav-link">Transaksi</a>
+       <a href="{{ route('dashboard') }}" class="fw-bold mb-4 text-decoration-none text-dark h5 d-block">Dashboard</a>
+        <a href="{{ route('dashboard.bootcamp') }}" class="nav-link">Bootcamp</a>
+        <a href="{{ route('dashboard.course') }}" class="nav-link">Course</a>
+        <a href="{{ route('dashboard.sertifikat') }}" class="nav-link">Sertifikat</a>
+        <a href="{{ route('dashboard.transaksi') }}" class="nav-link">Transaksi</a>
+
 
         <div class="mt-auto w-100">
             <a href="#" class="nav-link">Setting</a>
@@ -45,26 +46,13 @@
             </div>
         </div>
         
-     <!-- Tabel Sertifikat -->
-        <div class="card p-3 text-center">
-            <table class="table table-borderless">
-                <thead>
-                    <tr class="bg-light fw-semibold">
-                        <th>ID Sertifikat</th>
-                        <th>Nama Course</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="3" class="text-muted">Tidak ada sertifikat</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="empty-bootcamp text-center mt-5">
+        <div class="empty-card p-5 rounded-4 shadow-sm mx-auto">
+            <img src="{{ asset('images/empty-icon.png') }}" alt="Empty" width="90" class="mb-3">
+            <h5 class="fw-bold text-secondary">Sayang sekali kamu belum ikut kelas.</h5>
+            <p class="text-muted mb-4">Yuk, gabung dulu biar bisa mulai belajar!</p>
+            <button class="btn btn-buy">Beli Sekarang</button>
         </div>
+    </div>
 </div>
 @endsection
-
-  
-  
- 

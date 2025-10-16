@@ -7,19 +7,19 @@
     </a>
 
     <!-- Menu -->
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item mx-3">
-          <a class="nav-link fw-semibold text-white active" href="{{ route('landing') }}#beranda">Beranda</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('dashboard.bootcamp') }}">Bootcamp</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link fw-semibold text-white" href="{{ route('aboutUs') }}">Tentang Kami</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('dashboard.course') }}">Course</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link fw-semibold text-white" href="{{ route('landing') }}#program">Program</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('dashboard.sertifikat') }}">Sertifikat</a>
         </li>
-        <li class="nav-item mx-3">
-          <a class="nav-link fw-semibold text-white" href="{{ route('landing') }}#kontak">Kontak</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('dashboard.transaksi') }}">Transaksi</a>
         </li>
       </ul>
     </div>

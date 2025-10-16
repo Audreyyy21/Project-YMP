@@ -7,11 +7,13 @@
 <div class="dashboard-page row g-0">
     <!-- Sidebar -->
     <div class="col-2 sidebar d-flex flex-column align-items-start px-3">
-        <h5 class="fw-bold mb-4">Dashboard</h5>
-        <a href="#" class="nav-link">Bootcamp</a>
-        <a href="#" class="nav-link">Course</a>
-        <a href="#" class="nav-link">Sertifikat</a>
-        <a href="#" class="nav-link">Transaksi</a>
+        <a href="{{ route('dashboard') }}" class="fw-bold mb-4 text-decoration-none text-dark h5 d-block">Dashboard</a>
+        <a href="{{ route('dashboard.bootcamp') }}" class="nav-link">Bootcamp</a>
+        <a href="{{ route('dashboard.course') }}" class="nav-link">Course</a>
+        <a href="{{ route('dashboard.sertifikat') }}" class="nav-link">Sertifikat</a>
+        <a href="{{ route('dashboard.transaksi') }}" class="nav-link">Transaksi</a>
+
+
 
         <div class="mt-auto w-100">
             <a href="#" class="nav-link">Setting</a>
