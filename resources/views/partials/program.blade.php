@@ -14,7 +14,7 @@
     
     <div class="d-flex align-items-center gap-5">
         <a href="#" class="btn-arrow me-15">
-            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-left bi bi-arrow-left"></i>
         </a>
         <a href="#" class="btn btn-custom-gold">Konsultasi Akademik</a>
         <a href="#" class="btn btn-custom-gold">Bimbingan Belajar Online</a>

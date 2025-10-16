@@ -37,9 +37,3 @@
     </button>
   </div>
 </nav>
-
-<style>
-  .navbar .nav-link:hover {
-    color: #FFD700 !important; /* warna kuning saat hover */
-  }
-</style>
