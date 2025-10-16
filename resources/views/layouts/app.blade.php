@@ -13,7 +13,7 @@
 </head>
 <body>
     {{-- Navbar hanya muncul jika bukan halaman login/register --}}
-    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'register.form']))
+    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'register.form', 'dashboard', 'bootcamp', 'course', 'sertifikat', 'transaksi', 'setting']))
         @include('partials.navbar')
     @endif
 

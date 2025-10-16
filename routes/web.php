@@ -23,6 +23,27 @@ Route::get('/kontak', function () {
     return view('kontak'); // Asumsi Anda punya file kontak.blade.php
 })->name('kontak'); // Untuk menu "Kontak"
 
+Route::get('/bootcamp', function () {
+    return view('bootcamp');
+})->name('bootcamp');
+
+Route::get('/course', function () {
+    return view('course');
+})->name('course');
+
+Route::get('/sertifikat', function () {
+    return view('sertifikat');
+})->name('sertifikat');
+
+Route::get('/transaksi', function () {
+    return view('transaksi');
+})->name('transaksi');
+
+Route::get('/setting', function () {
+    return view('setting');
+})->name('setting');
+
+
 // 👇 Auth routes
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');

@@ -519,3 +519,261 @@ body {
     padding: 2.5rem; // Jarak dari teks ke garis batas
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Bayangan halus agar terlihat "mengambang"
 }
+
+.navbar .nav-link:hover {
+    color: #ffd700 !important; /* warna kuning saat hover */
+}
+
+/* ====================================================== */
+/* === DASHBOARD PAGE STYLE (YukMari Dashboard) === */
+/* ====================================================== */
+
+.dashboard-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+
+    .sidebar {
+        width: 220px;
+        background: linear-gradient(to bottom, #ffffff, #fff2cc);
+        border-right: 2px solid #eee;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        position: fixed;
+        height: 100vh;
+
+        h5 {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-link {
+            color: #1a1a1a;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+
+            &:hover,
+            &.active {
+                background-color: #ffd43b;
+                color: #000;
+                transform: translateX(5px);
+            }
+        }
+
+        .btn-logout {
+            background: linear-gradient(to bottom, #ffd43b, #e6b800);
+            color: #000;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            padding: 0.6rem;
+            width: 100%;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #ffcc00;
+                transform: translateY(-2px);
+            }
+        }
+
+        .setting-link {
+            color: #000;
+            font-weight: 500;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: 1rem;
+            display: block;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #b18b2f;
+            }
+        }
+    }
+
+    .main-content {
+        margin-left: 220px;
+        padding: 2rem;
+        flex: 1;
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+
+            .stat-box {
+                flex: 1 1 200px;
+                background: #ffffff;
+                border-radius: 15px;
+                padding: 1.2rem;
+                text-align: center;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                transition: transform 0.2s ease;
+
+                &:hover {
+                    transform: translateY(-4px);
+                }
+
+                h5 {
+                    font-weight: 700;
+                    color: #333;
+                }
+
+                p {
+                    margin: 0;
+                    font-weight: 600;
+                    color: #b18b2f;
+                }
+            }
+        }
+
+        h4 {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .bootcamp-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+
+            .bootcamp-card {
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                }
+
+                .card-header {
+                    background-color: #0d5235;
+                    color: #fff;
+                    padding: 0.8rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                .card-body {
+                    padding: 1rem;
+
+                    h5 {
+                        font-weight: 700;
+                        margin-bottom: 0.3rem;
+                        color: #1a1a1a;
+                    }
+
+                    p {
+                        color: #555;
+                        font-size: 0.95rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .price-old {
+                        text-decoration: line-through;
+                        color: #aaa;
+                        font-size: 0.9rem;
+                    }
+
+                    .price-new {
+                        font-weight: 700;
+                        color: #d43f00;
+                        font-size: 1.2rem;
+                    }
+
+                    .btn-buy {
+                        background-color: #ffd43b;
+                        color: #000;
+                        font-weight: 700;
+                        border: none;
+                        border-radius: 10px;
+                        width: 100%;
+                        padding: 0.6rem;
+                        margin-top: 0.8rem;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            background-color: #ffcc00;
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Responsif */
+    @media (max-width: 991px) {
+        flex-direction: column;
+
+        .sidebar {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border-right: none;
+            border-bottom: 2px solid #eee;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .main-content {
+            margin-left: 0;
+        }
+    }
+}
+
+//bagian bootcamp
+.empty-bootcamp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+
+    .empty-card {
+        background: #fff;
+        border: 1px solid #f5deb3;
+        max-width: 500px;
+        text-align: center;
+
+        img {
+            opacity: 0.8;
+        }
+
+        h5 {
+            color: #444;
+            font-size: 1.1rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+
+        .btn-buy {
+            background: linear-gradient(to bottom, #ffd43b, #b18b2f);
+            color: #000;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 0.6rem 1.4rem;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(to bottom, #ffcc00, #a8841e);
+            
+        }
+    }
+}
+
